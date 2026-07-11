@@ -10,13 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --page-bg: #f8f4f1;
+      --page-bg: #f7f3ef;
       --surface: #fffefd;
       --primary: #b48658;
-      --text: #604536;
-      --muted: #ab7d54;
-      --line: #e8d9c8;
-      --footer: #ede1ca;
+      --text: #5c4a3d;
+      --muted: #a97951;
+      --line: #e4d9cd;
+      --footer: #ecdfc8;
     }
 
     * { box-sizing: border-box; }
@@ -37,12 +37,12 @@
     button, a { -webkit-tap-highlight-color: transparent; }
     button { font: inherit; }
 
-    .site-header { padding: 25px 16px 12px; text-align: center; }
-    .brand { margin: 0; color: #674332; font-family: "Cormorant Garamond", "Times New Roman", serif; font-size: 49px; font-weight: 500; letter-spacing: .105em; line-height: 1.1; }
-    .tagline, .subtag { margin: 15px 0 0; color: var(--muted); font-size: 13px; font-weight: 500; letter-spacing: .06em; }
+    .site-header { padding: 33px 16px 0; text-align: center; }
+    .brand { margin: 0; color: #694635; font-family: "Cormorant Garamond", "Times New Roman", serif; font-size: 46px; font-weight: 500; letter-spacing: .105em; line-height: 1.1; }
+    .tagline, .subtag { margin: 17px 0 0; color: var(--muted); font-size: 13px; font-weight: 500; letter-spacing: .06em; }
     .subtag { margin-top: 2px; }
 
-    .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 42px; }
+    .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 48px; }
     .nav-button, .footer-button {
       min-height: 38px;
       padding: 7px 16px;
@@ -87,8 +87,11 @@
     .link-card:hover { background: #f2e8da; transform: translateY(-2px); }
 
     .content-card { padding: 24px; }
+    .content-card + .content-card { margin-top: 16px; }
     .content-card h2 { margin: 0 0 16px; padding-bottom: 11px; border-bottom: 1px solid var(--line); font-size: 16px; font-weight: 500; }
     .content-card p { margin: 9px 0; }
+    .booking-text { font-size: 14px; line-height: 1.8; }
+    .booking-text div { margin-bottom: 12px; }
     .price-img { display: block; width: 100%; height: auto; margin: 12px 0; border-radius: 10px; }
     .note { color: var(--muted); font-size: 13px; }
     .qa { margin: 19px 0; }
@@ -101,10 +104,10 @@
 
     @media (max-width: 480px) {
       body { font-size: 13px; }
-      .site-header { padding-top: 23px; }
-      .brand { font-size: 39px; }
-      .tagline, .subtag { margin-top: 13px; font-size: 12px; letter-spacing: .035em; }
-      .nav { gap: 8px; margin-top: 38px; }
+      .site-header { padding-top: 29px; }
+      .brand { font-size: 40px; }
+      .tagline, .subtag { margin-top: 15px; font-size: 12px; letter-spacing: .035em; }
+      .nav { gap: 8px; margin-top: 43px; }
       .nav-button { min-height: 36px; padding: 6px 13px; font-size: 12px; }
       main { width: min(100% - 32px, 672px); margin-top: 12px; }
       .link-card { min-height: 64px; padding: 15px 16px; font-size: 13px; }
@@ -149,15 +152,21 @@
     <section class="page" id="booking" aria-label="預約須知" hidden>
       <div class="content-card">
         <h2>✧ 預約須知</h2>
-        <p>首次預約需支付定金以保留時段。</p>
-        <p>預約請透過官方LINE，24小時自助式預約。</p>
-        <p>為保護店內人員安全，完整地址將於預約成功後提供。</p>
-        <p>鄰近地標可搜尋📍信義國小</p>
+        <div class="booking-text">
+          <div>首次預約需支付定金以保留時段。</div>
+          <div>預約請透過官方LINE，24小時自助式預約。</div>
+          <div>為保護店內人員安全，完整地址將於預約成功後提供。</div>
+          <div>鄰近地標可搜尋📍信義國小</div>
+        </div>
+      </div>
+      <div class="content-card">
         <h2>✧ 營業資訊</h2>
-        <p>營業時間：</p>
-        <p>週一至週五 10:30~21:00</p>
-        <p>週六、週日 10:30~18:00</p>
-        <p class="note">＊皆採預約制，不定期公休。</p>
+        <div class="booking-text">
+          <div>營業時間：</div>
+          <div>　週一至週五 10:30~21:00</div>
+          <div>　週六、週日 10:30~18:00</div>
+          <div class="note">＊皆採預約制，不定期公休。</div>
+        </div>
       </div>
     </section>
 
