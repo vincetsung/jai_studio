@@ -2,111 +2,209 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Jai Studio｜睫毛管理・皮膚管理</title>
   <meta name="description" content="Jai Studio：睫毛管理、蘊睫、皮膚管理、野生眉雕塑與 1:1 睫毛管理技術教學。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f2ed;
+      --page-bg: #f8f4f1;
       --surface: #fffefd;
-      --primary: #b2875c;
-      --primary-dark: #8e6847;
-      --secondary: #e9dcc5;
-      --text: #5c4a3d;
-      --muted: #806d5d;
-      --border: #e1d6c9;
+      --primary: #b48658;
+      --text: #604536;
+      --muted: #ab7d54;
+      --line: #e8d9c8;
+      --footer: #ede1ca;
     }
+
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
     body {
+      min-width: 320px;
       margin: 0;
-      background: var(--bg);
+      display: flex;
+      min-height: 100vh;
+      min-height: 100svh;
+      flex-direction: column;
+      background: var(--page-bg);
       color: var(--text);
-      font-family: "Noto Serif TC", "PingFang TC", "Microsoft JhengHei", serif;
-      line-height: 1.8;
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
     }
-    a { color: inherit; }
-    .site-header { text-align: center; padding: 28px 20px 18px; }
-    .brand { margin: 0; font-size: clamp(2rem, 5vw, 3rem); font-weight: 400; letter-spacing: .12em; }
-    .tagline { margin: 10px 0 0; color: var(--primary-dark); font-size: .95rem; letter-spacing: .12em; }
-    .subtag { margin: 0; color: var(--primary-dark); font-size: .9rem; letter-spacing: .12em; }
-    .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 24px auto 0; }
-    .nav a, .footer-btn { text-decoration: none; border: 1px solid var(--border); border-radius: 999px; padding: 5px 16px; background: var(--surface); font-size: .9rem; transition: .2s ease; }
-    .nav a:hover, .nav a.active, .footer-btn.primary { background: var(--primary); border-color: var(--primary); color: white; }
-    main { width: min(680px, calc(100% - 32px)); margin: 0 auto; padding: 0 0 90px; }
-    section { scroll-margin-top: 18px; }
-    .link-card, .card { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 22px; margin: 14px 0; box-shadow: 0 2px 8px rgba(92, 74, 61, .06); }
-    .link-card { text-align: center; text-decoration: none; transition: .2s ease; }
-    .link-card:hover { background: var(--secondary); transform: translateY(-2px); }
-    .card h2 { margin: 0 0 16px; font-size: 1.05rem; font-weight: 500; border-bottom: 1px solid var(--secondary); padding-bottom: 10px; }
-    .card p { margin: 8px 0; }
-    .price-img { display: block; width: 100%; height: auto; border-radius: 12px; margin: 12px 0; }
-    .qa { margin: 18px 0; }
-    .qa strong { display: block; margin-bottom: 4px; font-weight: 600; }
-    .qa span { display: block; padding-left: 1em; color: var(--muted); }
-    .note { color: var(--muted); font-size: .9rem; }
-    footer { background: var(--secondary); text-align: center; padding: 24px 16px; color: var(--muted); }
-    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
-    @media (max-width: 520px) { .site-header { padding-top: 22px; } .nav a { padding: 4px 12px; } .link-card, .card { padding: 18px; } }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+
+    .site-header { padding: 25px 16px 12px; text-align: center; }
+    .brand { margin: 0; color: #674332; font-family: "Cormorant Garamond", "Times New Roman", serif; font-size: 49px; font-weight: 500; letter-spacing: .105em; line-height: 1.1; }
+    .tagline, .subtag { margin: 15px 0 0; color: var(--muted); font-size: 13px; font-weight: 500; letter-spacing: .06em; }
+    .subtag { margin-top: 2px; }
+
+    .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 42px; }
+    .nav-button, .footer-button {
+      min-height: 38px;
+      padding: 7px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1;
+      text-decoration: none;
+      transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+    }
+    .nav-button:hover, .nav-button.is-active, .footer-button.primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .nav-button:focus-visible, .footer-button:focus-visible, .link-card:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+
+    main { width: min(672px, calc(100% - 32px)); flex: 1 0 auto; margin: 12px auto 0; }
+    .page { display: none; padding-bottom: 22px; }
+    .page.is-active { display: block; }
+
+    .link-card, .content-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: 0 2px 8px rgba(92, 74, 61, .045);
+    }
+    .link-card {
+      display: flex;
+      min-height: 66px;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 20px;
+      margin: 12px 0;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      text-decoration: none;
+      transition: background-color .2s ease, transform .2s ease;
+    }
+    .link-card:hover { background: #f2e8da; transform: translateY(-2px); }
+
+    .content-card { padding: 24px; }
+    .content-card h2 { margin: 0 0 16px; padding-bottom: 11px; border-bottom: 1px solid var(--line); font-size: 16px; font-weight: 500; }
+    .content-card p { margin: 9px 0; }
+    .price-img { display: block; width: 100%; height: auto; margin: 12px 0; border-radius: 10px; }
+    .note { color: var(--muted); font-size: 13px; }
+    .qa { margin: 19px 0; }
+    .qa-question { margin-bottom: 6px; font-weight: 600; }
+    .qa-answer { padding-left: 15px; color: var(--muted); }
+
+    footer { display: flex; min-height: 133px; flex: 0 0 auto; flex-direction: column; align-items: center; justify-content: center; margin-top: 0; padding: 22px 16px max(22px, env(safe-area-inset-bottom)); background: var(--footer); color: #8b6e55; text-align: center; font-size: 12px; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 12px; }
+    .footer-button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 20px; }
+
+    @media (max-width: 480px) {
+      body { font-size: 13px; }
+      .site-header { padding-top: 23px; }
+      .brand { font-size: 39px; }
+      .tagline, .subtag { margin-top: 13px; font-size: 12px; letter-spacing: .035em; }
+      .nav { gap: 8px; margin-top: 38px; }
+      .nav-button { min-height: 36px; padding: 6px 13px; font-size: 12px; }
+      main { width: min(100% - 32px, 672px); margin-top: 12px; }
+      .link-card { min-height: 64px; padding: 15px 16px; font-size: 13px; }
+      .content-card { padding: 19px 17px; }
+      .content-card h2 { font-size: 15px; }
+      footer { min-height: 120px; }
+      .footer-links { gap: 8px; }
+      .footer-button { min-height: 42px; padding: 9px 16px; font-size: 12px; }
+    }
   </style>
 </head>
 <body>
   <header class="site-header">
     <h1 class="brand">Jai Studio</h1>
     <p class="tagline">睫毛管理｜蘊睫｜皮膚管理｜野生眉雕塑</p>
-    <p class="subtag">1:1 睫毛管理技術教學</p>
+    <p class="subtag">1:1睫毛管理技術教學</p>
     <nav class="nav" aria-label="主要導覽">
-      <a class="active" href="#home">首頁</a><a href="#prices">價目表</a><a href="#booking">預約須知</a><a href="#faq">常見問題</a>
+      <button class="nav-button is-active" type="button" data-page="home">首頁</button>
+      <button class="nav-button" type="button" data-page="prices">價目表</button>
+      <button class="nav-button" type="button" data-page="booking">預約須知</button>
+      <button class="nav-button" type="button" data-page="faq">常見問題</button>
     </nav>
   </header>
 
   <main>
-    <section id="home" aria-label="首頁">
-      <a class="link-card" href="https://lin.ee/JUGrXK4" target="_blank" rel="noopener">官方 𝐋𝐢𝐧𝐞@ 預約、諮詢</a>
-      <a class="link-card" href="https://ppt.cc/fTiSBx" target="_blank" rel="noopener">🛒 睫毛保養液</a>
-      <a class="link-card" href="https://www.instagram.com/eason.nail" target="_blank" rel="noopener">駐店美甲師 𓂃 伊森美學</a>
+    <!-- 首頁僅保留這三個外開連結。 -->
+    <section class="page is-active" id="home" aria-label="首頁">
+      <a class="link-card" href="https://lin.ee/JUGrXK4" target="_blank" rel="noopener noreferrer">官方 𝐋𝐢𝐧𝐞@ 預約、諮詢</a>
+      <a class="link-card" href="https://ppt.cc/fTiSBx" target="_blank" rel="noopener noreferrer">🛒 睫毛保養液</a>
+      <a class="link-card" href="https://www.instagram.com/eason.nail" target="_blank" rel="noopener noreferrer">駐店美甲師 𓂃 伊森美學</a>
     </section>
 
-    <section id="prices" class="card">
-      <h2>✧ 價目表</h2>
-      <!-- 可將 src 換成你自己的圖片網址，或改成 /images/price-1.jpg 等本機路徑。 -->
-      <img class="price-img" src="https://ppt.cc/fMnP4x@.jpg" alt="服務項目及價格 1">
-      <img class="price-img" src="https://ppt.cc/f72Ecx@.jpg" alt="服務項目及價格 2">
-      <p class="note">＊價格如有調整，以現場公告為準</p>
+    <section class="page" id="prices" aria-label="價目表" hidden>
+      <div class="content-card">
+        <h2>✧ 價目表</h2>
+        <img class="price-img" src="https://ppt.cc/fMnP4x@.jpg" alt="服務項目及價格 1">
+        <img class="price-img" src="https://ppt.cc/f72Ecx@.jpg" alt="服務項目及價格 2">
+        <p class="note">＊價格如有調整，以現場公告為準</p>
+      </div>
     </section>
 
-    <section id="booking" class="card">
-      <h2>✧ 預約須知</h2>
-      <p>首次預約需支付定金以保留時段。</p>
-      <p>預約請透過官方 LINE，24 小時自助式預約。</p>
-      <p>為保護店內人員安全，完整地址將於預約成功後提供。</p>
-      <p>鄰近地標可搜尋 📍信義國小</p>
-      <h2>✧ 營業資訊</h2>
-      <p>營業時間：</p><p>週一至週五 10:30～21:00</p><p>週六、週日 10:30～18:00</p>
-      <p class="note">＊皆採預約制，不定期公休。</p>
+    <section class="page" id="booking" aria-label="預約須知" hidden>
+      <div class="content-card">
+        <h2>✧ 預約須知</h2>
+        <p>首次預約需支付定金以保留時段。</p>
+        <p>預約請透過官方LINE，24小時自助式預約。</p>
+        <p>為保護店內人員安全，完整地址將於預約成功後提供。</p>
+        <p>鄰近地標可搜尋📍信義國小</p>
+        <h2>✧ 營業資訊</h2>
+        <p>營業時間：</p>
+        <p>週一至週五 10:30~21:00</p>
+        <p>週六、週日 10:30~18:00</p>
+        <p class="note">＊皆採預約制，不定期公休。</p>
+      </div>
     </section>
 
-    <section id="faq" class="card">
-      <h2>✧ 常見問題</h2>
-      <div class="qa"><strong>Q. 睫毛管理可以維持多久？</strong><span>一般來說可維持 1.5～2 個月，實際情況會因個人睫毛生長週期及照顧方式而異，建議 6 週回來整理維持最佳狀態。</span></div>
-      <div class="qa"><strong>Q. 單眼皮或內雙可以施作睫毛管理嗎？</strong><span>可以的，單眼皮與內雙眼型都適合施作睫毛管理，透過客製化調整捲度，能有效改善下壓睫毛，讓眼睛更有神。</span></div>
-      <div class="qa"><strong>Q. 睫毛管理和接睫毛差在哪？</strong><span>睫毛管理是調整自身睫毛，效果自然、無掉落空洞期，不會有異物感，後續日常照顧也相對簡單、好整理。</span></div>
-      <div class="qa"><strong>Q. 睫毛管理會傷害真睫毛嗎？</strong><span>睫毛管理是以調整毛流與養護為核心的技術，在專業操作下不會對真睫毛造成負擔，同時也能讓睫毛排列更整齊，看起來更健康有精神。</span></div>
-      <div class="qa"><strong>Q. 睫毛管理做完可以刷睫毛膏嗎？</strong><span>施作後建議 24 小時內避免碰水，讓睫毛穩定定型，之後即可正常上眼妝、刷睫毛膏與卸妝。</span></div>
-      <div class="qa"><strong>Q. 皮膚管理做一次就有效果嗎？</strong><span>多數人在施作後能感受到肌膚保濕度與透亮感的提升，若能定期保養效果會更加穩定，一般建議約 3～4 週保養一次。</span></div>
-      <div class="qa"><strong>Q. 皮膚管理做完可以化妝嗎？</strong><span>除藻針課程，其他項目施作後無修復期，當天即可上淡妝，建議以清爽保養為主。</span></div>
-      <div class="qa"><strong>Q. 皮膚管理可以和睫毛管理一起施作嗎？</strong><span>可以一起預約施作，但整體操作時間較長，建議先評估自身耐躺度再決定是否一起安排。</span></div>
-      <p>如有其他問題，歡迎私訊詢問。</p>
+    <section class="page" id="faq" aria-label="常見問題" hidden>
+      <div class="content-card">
+        <h2>✧ 常見問題</h2>
+        <div class="qa"><div class="qa-question">Q. 睫毛管理可以維持多久？</div><div class="qa-answer">一般來說可維持 1.5～2 個月，實際情況會因為個人睫毛生長週期及照顧方式而異，建議 6 週回來整理維持最佳狀態。</div></div>
+        <div class="qa"><div class="qa-question">Q. 單眼皮或內雙可以施作睫毛管理嗎？</div><div class="qa-answer">可以的，單眼皮與內雙眼型都適合施作睫毛管理，透過客製化調整捲度，能有效改善下壓睫毛，讓眼睛更有神。</div></div>
+        <div class="qa"><div class="qa-question">Q. 睫毛管理和接睫毛差在哪？</div><div class="qa-answer">睫毛管理是調整自身睫毛，效果自然、無掉落空洞期，不會有異物感，後續日常照顧也相對簡單、好整理。</div></div>
+        <div class="qa"><div class="qa-question">Q. 睫毛管理會傷害真睫毛嗎？</div><div class="qa-answer">睫毛管理是以調整毛流與養護為核心的技術，在專業操作下不會對真睫毛造成負擔，同時也能讓睫毛排列更整齊，看起來更健康有精神。</div></div>
+        <div class="qa"><div class="qa-question">Q. 睫毛管理做完可以刷睫毛膏嗎？</div><div class="qa-answer">施作後建議 24 小時內避免碰水，讓睫毛穩定定型，之後即可正常上眼妝、刷睫毛膏與卸妝。</div></div>
+        <div class="qa"><div class="qa-question">Q. 皮膚管理做一次就有效果嗎？</div><div class="qa-answer">多數人在施作後能感受到肌膚保濕度與透亮感的提升，若能定期保養效果會更加穩定，一般建議約 3～4 週保養一次，能幫助肌膚維持在較理想的狀態。</div></div>
+        <div class="qa"><div class="qa-question">Q. 皮膚管理做完可以化妝嗎？</div><div class="qa-answer">除藻針課程，其他項目施作後無修復期，當天即可上淡妝，建議以清爽保養為主。</div></div>
+        <div class="qa"><div class="qa-question">Q. 皮膚管理可以和睫毛管理一起施作嗎？</div><div class="qa-answer">可以一起預約施作，但整體操作時間較長，建議先評估自身耐躺度再決定是否一起安排。</div></div>
+        <p>如有其他問題，歡迎私訊詢問。</p>
+      </div>
     </section>
   </main>
 
   <footer>
     <div>感謝您的瀏覽 ♡</div>
     <div class="footer-links">
-      <a class="footer-btn primary" href="#home">返回首頁</a>
-      <a class="footer-btn" href="https://www.instagram.com/jai.studiooo" target="_blank" rel="noopener">Instagram</a>
-      <a class="footer-btn" href="https://lin.ee/JUGrXK4" target="_blank" rel="noopener">官方 LINE</a>
+      <button class="footer-button primary" type="button" data-page="home">返回首頁</button>
+      <a class="footer-button" href="https://www.instagram.com/jai.studiooo" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a class="footer-button" href="https://lin.ee/JUGrXK4" target="_blank" rel="noopener noreferrer">官方LINE</a>
     </div>
   </footer>
+
+  <script>
+    (() => {
+      const pageButtons = document.querySelectorAll('[data-page]');
+      const pages = document.querySelectorAll('.page');
+
+      function showPage(pageName) {
+        pages.forEach((page) => {
+          const active = page.id === pageName;
+          page.classList.toggle('is-active', active);
+          page.hidden = !active;
+        });
+        document.querySelectorAll('.nav-button').forEach((button) => {
+          button.classList.toggle('is-active', button.dataset.page === pageName);
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      pageButtons.forEach((button) => button.addEventListener('click', () => showPage(button.dataset.page)));
+    })();
+  </script>
 </body>
 </html>
